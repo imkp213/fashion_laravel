@@ -23,7 +23,9 @@ class UserController extends Controller
             'password'=> 'required'
         ]);
         if ($validator->fails()) {
-            return response()->json($validator->errors());
+            $response['status'] = false;
+            $response['message'] = $validator->errors()->first();
+            return Response::json($response,200);
         }
         User::create([
             'name' => $request->get('name'),
@@ -35,6 +37,7 @@ class UserController extends Controller
         
         $response['data']   = $token;
         $response['status'] = true;
+        $response['message'] = "successfully registered with us..!!";
         return Response::json($response,200);
     }
 
