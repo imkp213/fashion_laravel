@@ -40,7 +40,7 @@ Route::get('user-details/{id}','Apis\ApiController@user_details');
 //     return auth()->user();
 // });
 
-Route::group(['middleware'=>'jwt.auth'],function(){
+// Route::group(['middleware'=>'jwt.auth'],function(){
 	/* add product to cart */
 	Route::any('add-to-cart','Apis\ApiController@add_to_cart');
 
@@ -54,7 +54,7 @@ Route::group(['middleware'=>'jwt.auth'],function(){
 
 	/* get orders */
 	Route::get('user-orders/{id}','Apis\ApiController@user_orders');
-});
+// });
 
 /* product details */
 Route::get('get-product-details/{slug}','Apis\ApiController@product_details');
